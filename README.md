@@ -1,2 +1,2 @@
 # SylhetJerseyHouse
-An Android E-commerce Application
+an Android E-commerce Application
