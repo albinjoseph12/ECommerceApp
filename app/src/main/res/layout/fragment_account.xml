@@ -37,7 +37,7 @@
             android:layout_marginTop="87dp"
             android:fontFamily="@font/aleo"
             android:gravity="center"
-            android:text="Raisul Karim Saju"
+            android:text="Mehadi Hasan Shakil"
             android:textColor="#0C0C0C"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -366,6 +366,54 @@
 
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_ac_others"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/layout_bg"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/id_ac_aboutApplication">
+
+            <ImageView
+                android:id="@+id/id_ac_more"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="25dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_more" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/id_ac_more"
+                android:gravity="center"
+                android:text="Others"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center|end"
+                android:src="@drawable/ic_right_arrow" />
+
+
+        </RelativeLayout>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
