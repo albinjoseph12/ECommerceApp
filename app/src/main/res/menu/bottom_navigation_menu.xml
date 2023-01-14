@@ -16,10 +16,6 @@
         android:icon="@drawable/ic_cart"
         android:title="Cart"/>
 
-    <item
-        android:id="@+id/id_favourite"
-        android:icon="@drawable/ic_favourite"
-        android:title="Favourite"/>
 
     <item
         android:id="@+id/id_account"

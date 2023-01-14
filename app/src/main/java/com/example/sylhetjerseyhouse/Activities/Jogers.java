@@ -1,16 +1,10 @@
-package com.example.sylhetjerseyhouse.Fragments;
+package com.example.sylhetjerseyhouse.Activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.os.Bundle;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,9 +13,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sylhetjerseyhouse.Fragments.Adapter;
 import com.example.sylhetjerseyhouse.R;
 import com.example.sylhetjerseyhouse.db.Model;
-import com.example.sylhetjerseyhouse.db.SetDataActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,55 +24,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentHome extends Fragment {
+public class Jogers extends AppCompatActivity {
 
-
-    RecyclerView flashSaleRV;
-    Adapter adapter;
+    RecyclerView jogersRV;
+    private Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private Model model;
-    private String url = "https://food-buzz.000webhostapp.com/flash_sale.php";
+    private String url = "https://food-buzz.000webhostapp.com/jogers.php";
     private List<Model> dataList;
-    Button dataUpload;
-
-    public FragmentHome() {
-        // Required empty public constructor
-    }
-
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_jogers);
+
+        jogersRV = findViewById(R.id.id_JogersRV);
 
 
+        fetchData();
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        flashSaleRV = view.findViewById(R.id.id_flashSaleRV);
-        dataUpload = view.findViewById(R.id.id_upload);
-        recyclerViewPopular();
-
-        dataUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent i = new Intent(getContext(), SetDataActivity.class);
-                    startActivity(i);
-                }catch (Exception e)
-                {
-                    Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
-
-
-        return view;
     }
 
 
@@ -86,24 +50,14 @@ public class FragmentHome extends Fragment {
 
 
 
-
-
-    private void recyclerViewPopular() {
-        layoutManager = new GridLayoutManager(getContext(), 2);
-        flashSaleRV.setLayoutManager(layoutManager);
+    private void fetchData() {
+        layoutManager = new GridLayoutManager(getApplicationContext(), 3);
+        jogersRV.setLayoutManager(layoutManager);
         dataList = new ArrayList<>();
-        adapter = new Adapter(getContext(), dataList);
-
-
-        flashSaleRV.setAdapter((RecyclerView.Adapter) adapter);
+        adapter = new Adapter(this, dataList);
+        jogersRV.setAdapter(adapter);
         getData();
     }
-
-
-
-
-
-
 
     private void getData() {
 
@@ -146,48 +100,14 @@ public class FragmentHome extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(request);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import com.example.sylhetjerseyhouse.Fragments.FragmentAccount;
 import com.example.sylhetjerseyhouse.Fragments.FragmentCart;
 import com.example.sylhetjerseyhouse.Fragments.FragmentCategory;
-import com.example.sylhetjerseyhouse.Fragments.FragmentFavourite;
 import com.example.sylhetjerseyhouse.Fragments.FragmentHome;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -42,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.id_cart:
                         ReplaceFragment(new FragmentCart());
-                        break;
-                    case R.id.id_favourite:
-                        ReplaceFragment(new FragmentFavourite());
                         break;
                     case R.id.id_account:
                         ReplaceFragment(new FragmentAccount());
