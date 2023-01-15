@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
     android:layout_width="150dp"
-    android:layout_height="190dp">
+    android:layout_height="190dp"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,12 +23,12 @@
             android:id="@+id/id_RcItem_productName"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:text="Bayarn Munich"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
+            android:text="Bayarn Munich"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/id_RcItem_productImage" />
@@ -37,20 +37,18 @@
             android:id="@+id/id_RcItem_productPrice"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="750 tk"
-            android:textSize="12sp"
-            android:paddingLeft="5dp"
-            android:textColor="@color/black"
             android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="750 tk"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/id_RcItem_productName" />
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.cardview.widget.CardView>

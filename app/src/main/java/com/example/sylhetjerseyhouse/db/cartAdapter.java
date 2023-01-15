@@ -20,12 +20,13 @@ import java.util.List;
 public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder> {
 
     List<Item> items;
-    TextView cartItemTotalPrice, cartTotalPrice;
+    TextView cartItemTotalPrice, cartTotalPrice, cartDeliveryCharge;
 
-    public cartAdapter(List<Item> items, TextView cartItemTotalPrice, TextView cartTotalPrice) {
+    public cartAdapter(List<Item> items, TextView cartItemTotalPrice, TextView cartTotalPrice, TextView cartDeliveryCharge) {
         this.items = items;
         this.cartItemTotalPrice = cartItemTotalPrice;
         this.cartTotalPrice = cartTotalPrice;
+        this.cartDeliveryCharge = cartDeliveryCharge;
     }
 
     @NonNull
@@ -119,13 +120,23 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder
 
 
     private void updatePrice() {
-        int sum = 0, total = 0, delivery = 100;
+        int sum = 0, total = 0, delivery = 110;
         for (int i = 0; i < items.size(); i++) {
             sum = sum + (Integer.parseInt(items.get(i).getPrice()) * items.get(i).getQuantity());
         }
-        total += sum + 100;
-        cartItemTotalPrice.setText(String.valueOf(sum));
-        cartTotalPrice.setText(String.valueOf(total));
+        total += sum + delivery;
+
+
+        cartItemTotalPrice.setText(String.valueOf(sum)+" tk");
+        if(sum == 0){
+            cartTotalPrice.setText("0 tk");
+            cartDeliveryCharge.setText("0 tk");
+        }else {
+            cartTotalPrice.setText(String.valueOf(total) + " tk");
+            cartDeliveryCharge.setText(String.valueOf(delivery) + " tk");
+        }
+
+
     }
 
 

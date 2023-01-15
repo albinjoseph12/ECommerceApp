@@ -118,7 +118,7 @@ public class SetDataActivity extends AppCompatActivity {
         String i_description = description.getText().toString();
         String tName = db_Table.getText().toString();
 
-//        String i_image = imageToString();
+
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

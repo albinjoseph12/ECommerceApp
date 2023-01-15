@@ -1,63 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#7586E3"
     tools:context=".Fragments.FragmentCart">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/id_cartToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F8F6FF">
+        android:layout_height="0dp"
+        android:background="#61FFFDF8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_cartToolbar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView7"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cartRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="My Cart"
-                android:textColor="#E2F41E1E"
-                android:textSize="26sp"
-                android:textStyle="bold|normal"
-                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="0dp" />
 
-            <ScrollView
-                android:id="@+id/scrollView2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:layout_constraintVertical_bias="0.0">
+        </ScrollView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/cartRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp" />
-
-            </ScrollView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
@@ -103,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="780 tk"
+                        android:text="0 tk"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />
@@ -132,11 +116,11 @@
                         android:textStyle="normal|bold" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/cartDeliveryCharge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="100tk"
+                        android:text="0 tk"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />
@@ -167,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="880 tk"
+                        android:text="0 tk"
                         android:textColor="#373b54"
                         android:textSize="28sp"
                         android:textStyle="normal|bold" />
@@ -184,16 +168,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="47dp"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="14dp"
                     android:background="@drawable/orange_button_bg"
                     android:gravity="center"
-                    android:text="CheckOut"
-                    android:textColor="#EDEDED"
+                    android:text="@string/checkout"
+                    android:textColor="#373737"
                     android:textSize="25sp"
                     android:textStyle="normal|bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -210,4 +194,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

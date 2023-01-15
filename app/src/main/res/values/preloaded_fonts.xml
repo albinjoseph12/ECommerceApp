@@ -3,8 +3,10 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
         <item>@font/acme</item>
+        <item>@font/alata</item>
         <item>@font/aleo</item>
         <item>@font/allerta</item>
         <item>@font/archivo_black</item>
+        <item>@font/baloo_bhai_2_semibold</item>
     </array>
 </resources>

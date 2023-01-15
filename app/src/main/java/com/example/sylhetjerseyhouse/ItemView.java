@@ -20,7 +20,7 @@ public class ItemView extends AppCompatActivity {
 
     TextView title, description, price, quantity;
     ImageView image_view;
-    Button increment, decrement;
+    TextView increment, decrement;
     Button addToCart;
     int s_quantity;
     String s_title, s_price, s_description, s_image;

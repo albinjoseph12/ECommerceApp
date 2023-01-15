@@ -47,7 +47,6 @@ public class ClubsKeyRing extends AppCompatActivity {
 
 
 
-
     private void fetchData() {
         layoutManager = new GridLayoutManager(getApplicationContext(), 3);
         clubsKeyRingRV.setLayoutManager(layoutManager);
