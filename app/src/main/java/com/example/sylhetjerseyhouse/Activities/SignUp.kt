@@ -15,7 +15,16 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.sylhetjerseyhouse.API.ApiController
+import com.example.sylhetjerseyhouse.API.ApiResponse
+import com.example.sylhetjerseyhouse.API.ApiSet
+import com.example.sylhetjerseyhouse.API.RequestData
 import com.example.sylhetjerseyhouse.R
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Call
 
 class SignUp : AppCompatActivity() {
 
@@ -76,32 +85,32 @@ class SignUp : AppCompatActivity() {
 
 
 
-    private fun registerUser(newEmail: String, newPassword: String) {
+    fun registerUser(newEmail: String, newPassword: String) {
 
-        val request: StringRequest =
-            object : StringRequest(Method.POST, url, Response.Listener { response: String ->
-                emailSignUp.setText("")
-                passwordSignUp.setText("")
-                confirmPasswordSignUp.setText("")
-                Toast.makeText(this@SignUp, response, Toast.LENGTH_SHORT).show()
+        val requestData = RequestData(newEmail, newPassword)
 
-            }, Response.ErrorListener { error: VolleyError ->
-                Toast.makeText(this@SignUp, error.message, Toast.LENGTH_SHORT).show()
-            }) {
-                @Throws(AuthFailureError::class)
-                override fun getParams(): Map<String, String> {
-
-                    val params: MutableMap<String, String> = HashMap()
-                    params["email"] = newEmail
-                    params["password"] = newPassword
-
-                    return params
-                }
+        val coroutineScope = CoroutineScope(Dispatchers.Main)
+        coroutineScope.launch {
+            try {
+                val response = ApiController.apiInterface.postData(requestData)
+                handleApiResponse(response)
+            } catch (e: Exception) {
+                // Handle error response here
+                val errorMessage = "Error: ${e.message}"
+                // Handle the error message here (e.g., show a toast or update UI)
+                Toast.makeText(this@SignUp, errorMessage, Toast.LENGTH_SHORT).show()
             }
-        val requestQueue : RequestQueue = Volley.newRequestQueue(applicationContext)
-        requestQueue.add(request)
+        }
 
 
+    }
+
+
+    private fun handleApiResponse(apiResponse: ApiResponse) {
+        // Handle successful response here
+        val message = apiResponse.message
+        // Handle the response message here (e.g., show a toast or update UI)
+        Toast.makeText(this@SignUp, message, Toast.LENGTH_SHORT).show()
     }
 
 
@@ -113,5 +122,8 @@ class SignUp : AppCompatActivity() {
 
 
 
+}
+
+private fun CoroutineScope.handleApiResponse(apiResponse: Call<ApiResponse>) {
 
 }

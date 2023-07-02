@@ -39,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
         <activity
             android:name=".db.SetDataActivity"
@@ -119,11 +120,16 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
+            android:exported="true">
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
+
+        </activity>
+
+
     </application>
 
 </manifest>

@@ -7,15 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.loader.content.AsyncTaskLoader
-import com.example.sylhetjerseyhouse.API.ApiController
-import com.example.sylhetjerseyhouse.API.ApiSet
-import com.example.sylhetjerseyhouse.API.Data
 import com.example.sylhetjerseyhouse.R
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
 
 class Login : AppCompatActivity() {
 
@@ -67,8 +59,8 @@ class Login : AppCompatActivity() {
 
     private fun checkEmailPassword(email: String, password: String):Boolean{
         // var qry : String = "?email="+email+"&password="+password
+        //ApiController.apiInterface.loginUser(email, password).enqueue(object : Callback<Data>)
 
-        ApiController.apiInterface.loginUser(email, password).enqueue(object : Callback<Data>)
 
 
         return false;

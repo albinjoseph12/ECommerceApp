@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import com.example.sylhetjerseyhouse.Fragments.LoginTabFragment;
-import com.example.sylhetjerseyhouse.Fragments.SignUpTabFragment;
 
 public class LoginSignupTabAdapter extends FragmentStateAdapter {
     private Context context;
@@ -27,12 +25,12 @@ public class LoginSignupTabAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position)
         {
-            case 0:
-                LoginTabFragment loginTabFragment = new LoginTabFragment();
-                return loginTabFragment;
-            case 1:
-                SignUpTabFragment signUpTabFragment = new SignUpTabFragment();
-                return signUpTabFragment;
+//            case 0:
+//                LoginTabFragment loginTabFragment = new LoginTabFragment();
+//                return loginTabFragment;
+//            case 1:
+//                SignUpTabFragment signUpTabFragment = new SignUpTabFragment();
+//                return signUpTabFragment;
             default:
                 return null;
         }
