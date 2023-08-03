@@ -1,17 +1,15 @@
 package com.example.sylhetjerseyhouse.API
 
-import com.google.gson.Gson
 import okhttp3.OkHttpClient
-import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiController {
-    private val url : String = "https://files.000webhost.com/"
-
+    private val url : String = "https://food-buzz.000webhostapp.com/"
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit by lazy {
+
         Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
@@ -19,10 +17,7 @@ object ApiController {
             .build()
     }
 
-    val apiInterface by lazy {
-        retrofit.create(ApiSet::class.java)
+    val apiService: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
     }
-
-
-
 }
