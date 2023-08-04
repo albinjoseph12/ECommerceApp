@@ -45,7 +45,6 @@ dependencies {
     // collapsing toolbar
     implementation 'androidx.palette:palette:1.0.0'
 
-
     // volley and glide library
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.github.bumptech.glide:glide:4.14.2'
@@ -60,5 +59,13 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 
     // coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.6.1"
+
+
+
+
 }

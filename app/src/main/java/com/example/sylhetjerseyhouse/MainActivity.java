@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.sylhetjerseyhouse.Fragments.FragmentCart;
 import com.example.sylhetjerseyhouse.Fragments.FragmentCategory;
 import com.example.sylhetjerseyhouse.Fragments.FragmentHome;
-import com.example.sylhetjerseyhouse.Fragments.FragmentSettings;
+import com.example.sylhetjerseyhouse.Fragments.Fragment_Settings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         ReplaceFragment(new FragmentCart());
                         break;
                     case R.id.id_settings:
-                        ReplaceFragment(new FragmentSettings());
+                        ReplaceFragment(new Fragment_Settings());
                         break;
                 }
                 return true;
