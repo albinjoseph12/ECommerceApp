@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/id_homeAppBar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_45sdp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="200dp"
+                android:layout_width="@dimen/_160sdp"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:paddingLeft="15dp"
@@ -92,18 +92,27 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/image_slider"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/fifa" />
+                        app:iss_auto_cycle="true"
+                        app:iss_delay="1000"
+                        app:iss_period="1000"
+                        app:iss_selected_dot="@drawable/default_selected_dot"
+                        app:iss_text_align="CENTER"
+                        app:iss_unselected_dot="@drawable/default_unselected_dot"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -120,12 +129,14 @@
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
-                        android:layout_height="23dp"
+                        android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:paddingLeft="3dp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:text="Flash Sell"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

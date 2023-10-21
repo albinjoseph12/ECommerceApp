@@ -10,8 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:scaleType="fitCenter"
-        android:src="@drawable/barcelona"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,181 +22,218 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/id_image"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:contentDescription="jersey"
-                android:scaleType="fitCenter"
-                android:src="@drawable/barcelona"
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_cart"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_200sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/rounded_bg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/rounded_corners"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/divider" />
+
+            <ImageView
+                android:id="@+id/id_image"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_marginBottom="-80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/barcelona"
+                app:layout_constraintBottom_toTopOf="@id/rounded_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/id_title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Barcelona Jersey"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Barcelona"
                 android:textColor="@color/black"
-                android:textSize="21sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_image" />
+                app:layout_constraintTop_toBottomOf="@id/id_image" />
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/id_priceLayout"
-                android:layout_width="match_parent"
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="-30dp"
+                android:layout_marginTop="5dp"
+                android:numStars="5"
+                android:progressBackgroundTint="@android:color/darker_gray"
+                android:progressTint="@android:color/holo_orange_dark"
+
+                android:rating="4"
+                android:scaleX="0.4"
+                android:scaleY="0.4"
+                android:stepSize="1"
+                app:layout_constraintBottom_toBottomOf="@id/tv_item_rating"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_title">
-
-                <TextView
-                    android:id="@+id/id_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="140"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/id_currency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="tk"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/id_price"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="3dp"
-                android:weightSum="7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_priceLayout">
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center_vertical"
-                    android:text="Quantity:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:id="@+id/id_decrement"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="-"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:background="#83AAAAAA"/>
-
-
-                <TextView
-                    android:id="@+id/id_quantity"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/id_increment"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="+"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:background="#83AAAAAA"/>
-
-
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="@id/tv_item_rating" />
 
             <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginStart="8dp"
+                android:id="@+id/tv_item_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-60dp"
                 android:layout_marginTop="8dp"
-                android:text="Description"
+                android:text="4.8"
                 android:textColor="@color/black"
-                android:textSize="21sp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@id/id_title" />
+
+            <ImageButton
+                android:id="@+id/btn_fav"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/circle"
+                android:padding="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_favourite"
+                app:layout_constraintBottom_toBottomOf="@id/tv_item_rating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/id_title"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/btn_minus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_square"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_minus"
+                app:layout_constraintStart_toStartOf="@id/id_title"
+                app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/id_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_minus"
+                app:layout_constraintStart_toEndOf="@id/btn_minus"
+                app:layout_constraintTop_toTopOf="@id/btn_minus" />
+
+            <ImageButton
+                android:id="@+id/btn_plus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/rounded_square"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintStart_toEndOf="@id/id_quantity"
+                app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/id_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="1250 tk"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_minus"
+                app:layout_constraintEnd_toEndOf="@id/btn_fav"
+                app:layout_constraintTop_toTopOf="@id/btn_minus" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:text="Description"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_plus" />
+
 
             <TextView
                 android:id="@+id/id_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="sans-serif"
-                android:text="These fried chicken burgers are ultra crispy and absolutely bursting with flavour. Better still, they couldn’t be easier to make!"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Cold, creamy, so thick that your straw stands straight up, and filled with juicy berries."
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintStart_toStartOf="@id/id_title"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
             <Button
                 android:id="@+id/id_addToCartbtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_bg"
-                android:text="Add to Cart"
-                android:textColor="#BC3731"
-                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_rectangle"
+                android:text="Add To Cart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_description"
-                app:layout_constraintWidth_percent=".8" />
+                app:layout_constraintTop_toBottomOf="@+id/id_description" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

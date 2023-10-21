@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sylhetjerseyhouse.API.ApiController
-import com.example.sylhetjerseyhouse.API.PostData
+import com.example.sylhetjerseyhouse.DataClass.PostData
 import com.example.sylhetjerseyhouse.MainActivity
 import com.example.sylhetjerseyhouse.R
 import kotlinx.coroutines.CoroutineExceptionHandler

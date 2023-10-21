@@ -60,7 +60,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder
             }
         });
 
-
         holder.decrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +73,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder
             }
         });
 
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +81,7 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.CartViewHolder
                 itemDAO.deleteById(items.get(position).getId());
                 items.remove(position);
                 notifyItemRemoved(position);
+                notifyItemRangeChanged(position, items.size()); // Notify item range changed to update positions
                 updatePrice();
             }
         });

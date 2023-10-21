@@ -1,4 +1,4 @@
-package com.example.sylhetjerseyhouse.Fragments;
+package com.example.sylhetjerseyhouse.Adapter;
 
 import android.content.Context;
 import android.content.Intent;

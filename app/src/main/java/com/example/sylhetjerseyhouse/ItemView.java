@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +19,14 @@ import com.example.sylhetjerseyhouse.db.ItemDAO;
 
 public class ItemView extends AppCompatActivity {
 
-    TextView title, description, price, quantity;
+    TextView title;
+    TextView description;
+    TextView price;
+    TextView quantity;
     ImageView image_view;
-    TextView increment, decrement;
+    ImageButton increment, decrement;
     Button addToCart;
-    int s_quantity;
+    Integer s_quantity, JerseyPrice;
     String s_title, s_price, s_description, s_image;
 
     @Override
@@ -38,8 +42,8 @@ public class ItemView extends AppCompatActivity {
         description = findViewById(R.id.id_description);
         image_view = findViewById(R.id.id_image);
         quantity = findViewById(R.id.id_quantity);
-        increment = findViewById(R.id.id_increment);
-        decrement = findViewById(R.id.id_decrement);
+        increment = findViewById(R.id.btn_plus);
+        decrement = findViewById(R.id.btn_minus);
         addToCart = findViewById(R.id.id_addToCartbtn);
 
         Intent data = getIntent();
@@ -47,6 +51,12 @@ public class ItemView extends AppCompatActivity {
         s_price = data.getStringExtra("price");
         s_description = data.getStringExtra("description");
         s_image = data.getStringExtra("imageData");
+
+        try {
+            JerseyPrice = Integer.parseInt(s_price);
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
+        }
 
 
         title.setText(s_title);
@@ -65,6 +75,8 @@ public class ItemView extends AppCompatActivity {
                 String currentValue = quantity.getText().toString();
                 int value = Integer.parseInt(currentValue);
                 value++;
+                int yourPrice = value * JerseyPrice;
+                price.setText(String.valueOf(yourPrice));
                 quantity.setText(String.valueOf(value));
             }
         });
@@ -76,6 +88,8 @@ public class ItemView extends AppCompatActivity {
                 int value = Integer.parseInt(currentValue);
                 if (value > 1) {
                     value--;
+                    int yourPrice = value * JerseyPrice;
+                    price.setText(String.valueOf(yourPrice));
                     quantity.setText(String.valueOf(value));
                 }
             }

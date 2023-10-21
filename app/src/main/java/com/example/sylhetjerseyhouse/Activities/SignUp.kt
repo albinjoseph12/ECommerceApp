@@ -8,16 +8,15 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.sylhetjerseyhouse.API.ApiController
-import com.example.sylhetjerseyhouse.API.ApiResponse
-import com.example.sylhetjerseyhouse.API.ApiService
-import com.example.sylhetjerseyhouse.API.PostData
-import com.example.sylhetjerseyhouse.API.RequestData
+import com.example.sylhetjerseyhouse.DataClass.PostData
+import com.example.sylhetjerseyhouse.MainActivity
 import com.example.sylhetjerseyhouse.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
+
 
 class SignUp : AppCompatActivity() {
 
@@ -94,6 +93,8 @@ class SignUp : AppCompatActivity() {
                             if (apiResponse.message == "Successful") {
                                 // Registration successful, update UI accordingly
                                 Toast.makeText(this@SignUp, "Registration successful", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@SignUp, MainActivity::class.java)
+                                startActivity(intent)
                             } else {
                                 // Registration failed, show an error message
                                 Toast.makeText(this@SignUp, ""+apiResponse.message, Toast.LENGTH_SHORT).show()

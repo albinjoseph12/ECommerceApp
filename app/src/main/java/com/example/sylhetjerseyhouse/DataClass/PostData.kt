@@ -1,4 +1,4 @@
-package com.example.sylhetjerseyhouse.API
+package com.example.sylhetjerseyhouse.DataClass
 
 data class PostData(
     val email: String,
