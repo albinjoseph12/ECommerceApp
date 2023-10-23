@@ -38,4 +38,4 @@ This Android application is an e-commerce platform tailored for sports enthusias
 
 ## Contributing
 
-Feel free to contribute to this project. Please follow our [contribution guidelines](CONTRIBUTING.md).
+Feel free to contribute to this project.
