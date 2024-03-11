@@ -4,397 +4,261 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentCategory">
-
+    tools:context="com.eshopthis.finds.Fragments.FragmentCategory">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
+            <!-- Club Jerseys -->
             <LinearLayout
-                android:id="@+id/linearLayout2"
+                android:id="@+id/id_clearance"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="10dp"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick"> <!-- Ensure your Fragment or Activity handles this method -->
 
-                <LinearLayout
-                    android:id="@+id/id_clubsJersey"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" <!-- Adjust the height as needed -->
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/clearance" <!-- Replace with your actual image -->
+                    android:contentDescription="@string/club_jerseys"/>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/league" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Clubs Jersey"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/id_nationalJersey"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/national" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="National Teams Jersey"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clearance"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
             </LinearLayout>
 
+            <!-- Best Sellers -->
             <LinearLayout
-                android:id="@+id/linearLayout3"
+                android:id="@+id/id_best_seller"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="10dp"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
 
-                <LinearLayout
-                    android:id="@+id/id_customizedJersey"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/best_seller"
+                    android:contentDescription="best_sellers"/>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/customized" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Customized Jersey"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/id_jogers"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/jogers" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Jogers"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/best_sellers"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
             </LinearLayout>
 
+            <!-- Arts -->
             <LinearLayout
-                android:id="@+id/linearLayout4"
+                android:id="@+id/id_arts"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="10dp"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
 
-                <LinearLayout
-                    android:id="@+id/id_snakers"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/arts_image"
+                    android:contentDescription="@string/arts"/>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/sneakers" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Shoes/Snakers"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/id_clubsKeyRing"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/keyrings" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Clubs Key RIng"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/arts"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
             </LinearLayout>
 
+            <!-- Classics -->
             <LinearLayout
+                android:id="@+id/id_classics"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="10dp"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
 
-                <LinearLayout
-                    android:id="@+id/id_flags"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/classics"
+                    android:contentDescription="@string/classics"/>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/flags" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Flags"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/id_winterClothes"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:weightSum="10">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_weight="8.5"
-                        android:background="@color/white"
-                        app:cardCornerRadius="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/winterclothes" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="Winter Clothes"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                </LinearLayout>
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/classics"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
             </LinearLayout>
 
+            <!-- Scientific -->
+            <LinearLayout
+                android:id="@+id/id_scientific"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/scientific"
+                    android:contentDescription="@string/scientific"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scientific"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+            </LinearLayout>
 
+            <!-- Fiction -->
+            <LinearLayout
+                android:id="@+id/id_fiction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fiction_image"
+                    android:contentDescription="@string/fiction"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fiction"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- Religion -->
+            <LinearLayout
+                android:id="@+id/id_religion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/religion"
+                    android:contentDescription="@string/religion"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/religion"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- History -->
+            <LinearLayout
+                android:id="@+id/id_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/history"
+                    android:contentDescription="@string/history"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- Anime -->
+            <LinearLayout
+                android:id="@+id/id_anime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:onClick="onCategoryClick">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/anime"
+                    android:contentDescription="@string/anime"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anime"
+                    android:gravity="center"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
-
-
 </FrameLayout>

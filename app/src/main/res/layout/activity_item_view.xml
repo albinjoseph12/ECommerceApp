@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemView">
+    tools:context="com.eshopthis.finds.ItemView">
 
 
     <ScrollView
@@ -70,7 +70,7 @@
                 android:layout_height="@dimen/_200sdp"
                 android:layout_marginBottom="-80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/barcelona"
+                android:src="@drawable/java"
                 app:layout_constraintBottom_toTopOf="@id/rounded_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -82,7 +82,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Barcelona"
+                android:text="Java"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -175,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="1250 tk"
+                android:text="10$ "
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/btn_minus"

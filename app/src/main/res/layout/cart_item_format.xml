@@ -112,7 +112,7 @@
                         android:layout_weight="6"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
-                        android:text="140 tk"
+                        android:text="140 $"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />

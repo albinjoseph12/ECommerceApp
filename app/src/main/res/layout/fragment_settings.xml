@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.Fragment_Settings">
+    tools:context="com.eshopthis.finds.Fragments.Fragment_Settings">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/id_settingsToolbar"
@@ -82,10 +82,11 @@
                 android:fontFamily="@font/baloo_bhai_2_semibold"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="15dp"
-                android:text="Mehadi Hasan Shakil"
+                android:text="MyEommerceApp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +97,7 @@
                 android:fontFamily="sans-serif-light"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="15dp"
-                android:text="mehadihasan469@gmail.com"
+                android:text="MyEcommerceApp@mail.com"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"

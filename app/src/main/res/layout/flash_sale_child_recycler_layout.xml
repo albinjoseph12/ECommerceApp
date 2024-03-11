@@ -14,7 +14,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/bayarn"
+            android:src="@drawable/cplus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
             android:layout_height="20dp"
             android:gravity="center_vertical"
             android:paddingLeft="5dp"
-            android:text="Bayarn Munich"
+            android:text="C++"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"

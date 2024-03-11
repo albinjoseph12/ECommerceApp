@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentCart">
+    tools:context="com.eshopthis.finds.Fragments.FragmentCart">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/id_cartToolbar"
@@ -87,7 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="0 tk"
+                        android:text="0 $"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />
@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="0 tk"
+                        android:text="0 $"
                         android:textColor="#373b54"
                         android:textSize="18sp"
                         android:textStyle="normal|bold" />
@@ -151,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="end|center"
-                        android:text="0 tk"
+                        android:text="0 $"
                         android:textColor="#373b54"
                         android:textSize="28sp"
                         android:textStyle="normal|bold" />

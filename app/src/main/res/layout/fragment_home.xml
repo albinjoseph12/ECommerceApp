@@ -5,7 +5,7 @@
     android:id="@+id/id_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.FragmentHome">
+    tools:context="com.eshopthis.finds.Fragments.FragmentHome">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,7 +134,7 @@
                         android:paddingLeft="3dp"
                         android:layout_marginTop="@dimen/_3sdp"
                         android:layout_marginBottom="@dimen/_3sdp"
-                        android:text="Flash Sell"
+                        android:text="Flash Sale"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold"
@@ -150,8 +150,10 @@
                         android:scrollbars="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        app:layout_constraintVertical_bias="1.0" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

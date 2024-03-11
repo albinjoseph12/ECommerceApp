@@ -7,7 +7,7 @@
     android:background="@drawable/loginbkg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Activities.SignUp">
+    tools:context="com.eshopthis.finds.Activities.SignUp">
 
 
     <androidx.cardview.widget.CardView
