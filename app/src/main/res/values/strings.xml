@@ -15,10 +15,15 @@
 
 
     <!-- TODO: Remove this string if it is not used, or add a comment explaining its purpose -->
-    <string name="label_asddd">Your Text Here</string>
+    <string name="arts">Arts</string>
     <string name="fiction">Fiction</string>
     <string name="clearance">Clearance</string>
     <string name="religion">Religion</string>
     <string name="classic_books">Classic Books</string>
     <string name="best_sellers">best_sellers</string>
+    <string name="classics">Classics</string>
+    <string name="scientific">Scientific</string>
+    <string name="history">History</string>
+    <string name="anime">Anime</string>
+
 </resources>

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.eshopthis.finds.Adapter.Adapter;
-//import com.ecommerce.shopping.R;
 import com.eshopthis.finds.R;
 import com.eshopthis.finds.db.Model;
 
@@ -15,32 +14,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArtsActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
+
+    private RecyclerView recyclerViewArts;
     private Adapter adapter;
-    private List<Model> dataList; // Replace with your actual book model list
+    private List<Model> dataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_arts); // Make sure you have this layout
+        setContentView(R.layout.activity_arts);
 
-        recyclerView = findViewById(R.id.recyclerViewArts); // Ensure you have a RecyclerView in activity_arts.xml
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2)); // Or any other LayoutManager
+        recyclerViewArts = findViewById(R.id.recyclerViewArts);
+        recyclerViewArts.setLayoutManager(new GridLayoutManager(this, 2)); // Adjust the number of columns as needed
+
         dataList = new ArrayList<>();
         adapter = new Adapter(this, dataList);
-        recyclerView.setAdapter(adapter);
+        recyclerViewArts.setAdapter(adapter);
 
-        loadBooks(); // Method to load books into the list
+        loadBooks();
     }
 
     private void loadBooks() {
-        // Here, you would load your books into bookList.
-        // This could be a static list, fetched from a database, or loaded from an API.
-        // Correct use of the constructor with an image resource ID
-        dataList.add(new Model("1", "Art Book 1", "$19.99", "Description", R.drawable.art_book_1));
-        // Example
+        dataList.clear();
+        dataList.add(new Model("1", "Art Book 1", "$19.99", "Description for Art Book 1", R.drawable.arts));
+        dataList.add(new Model("2", "Art Book 2", "$29.99", "Description for Art Book 2", R.drawable.arts));
+        // Ensure you have drawable resources named art_book_1 and art_book_2 in your drawable folder
         // Add more books as needed
-
         adapter.notifyDataSetChanged();
     }
 }

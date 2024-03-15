@@ -25,9 +25,9 @@ public class HistoryBooks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fiction);
+        setContentView(R.layout.activity_history);
 
-        snakersRV = findViewById(R.id.id_Fiction);
+        snakersRV = findViewById(R.id.id_History);//
         fetchData();
     }
 
@@ -43,8 +43,8 @@ public class HistoryBooks extends AppCompatActivity {
     private void prepareData() {
         // Simulate adding items. In a real app, this data might come from a local database or file
         dataList.clear();
-        dataList.add(new Model("1", "Fiction 1", "10.99", "Description for Book 1", imageResId));
-        dataList.add(new Model("2", "Fiction 2", "12.99", "Description for Book 2", imageResId));
+        dataList.add(new Model("1", "History 1", "10.99", "Description for Book 1", imageResId));
+        dataList.add(new Model("2", "History 2", "12.99", "Description for Book 2", imageResId));
         // ... add more items as needed
         adapter.notifyDataSetChanged();
     }

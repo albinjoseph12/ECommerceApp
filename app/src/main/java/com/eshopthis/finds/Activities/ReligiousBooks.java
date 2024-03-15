@@ -25,9 +25,9 @@ public class ReligiousBooks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clearance);
+        setContentView(R.layout.activity_religion);
 
-        nationalJerseyRV = findViewById(R.id.id_Clearance);
+        nationalJerseyRV = findViewById(R.id.id_religion);
         fetchData();
     }
 

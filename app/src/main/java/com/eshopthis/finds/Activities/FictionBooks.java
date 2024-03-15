@@ -26,9 +26,9 @@ public class FictionBooks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scientific);
+        setContentView(R.layout.activity_fiction);
 
-        jogersRV = findViewById(R.id.religion);
+        jogersRV = findViewById(R.id.id_Fiction);
         fetchData();
     }
 
