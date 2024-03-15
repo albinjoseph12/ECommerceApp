@@ -1,4 +1,4 @@
-# SylhetJerseyHouse
+# MyEcommerceAPP
 an Android E-commerce Application
 
 ## Overview
