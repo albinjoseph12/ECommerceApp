@@ -34,9 +34,7 @@ This Android application is an e-commerce platform tailored for sports enthusias
 - Room
 - Retrofit
 
-## App Screenshots
 
-![SylhetJerseyHouseMockUps](https://github.com/mehadishakil/SylhetJerseyHouse/assets/112794443/94305319-c19c-483c-8af0-78a6180b4d84)
 
 ## Contributing
 
