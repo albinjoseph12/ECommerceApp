@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context="com.eshopthis.finds.Activities.SignUp">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
@@ -30,7 +29,6 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-
             <TextView
                 android:id="@+id/SignupText"
                 android:layout_width="match_parent"
@@ -50,6 +48,57 @@
                 android:drawableLeft="@drawable/ic_userimg"
                 android:drawablePadding="8dp"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textColorHint="#C5C5C5"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/firstNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_userimg"
+                android:drawablePadding="8dp"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textColorHint="#C5C5C5"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/lastNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_userimg"
+                android:drawablePadding="8dp"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textColorHint="#C5C5C5"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/referralEmailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_userimg"
+                android:drawablePadding="8dp"
+                android:hint="Referral Email"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
                 android:padding="8dp"
@@ -120,6 +169,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

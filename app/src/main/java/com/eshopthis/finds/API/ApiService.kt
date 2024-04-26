@@ -1,22 +1,29 @@
 package com.eshopthis.finds.API
 
-import com.eshopthis.finds.DataClass.ApiResponse
-import com.eshopthis.finds.DataClass.GetProduct
-import com.eshopthis.finds.DataClass.PostData
+import com.eshopthis.finds.data.ApiResponse
+import com.eshopthis.finds.models.User
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
+    // ...
 
-    @POST("login_user.php")
-    suspend fun loginUser(@Body postData: PostData): Response<ApiResponse>
+    @POST("checkusername")
+    suspend fun checkUsername(@Body username: String): Response<ApiResponse<Boolean>>
 
-    @POST("signup_user.php")
-    suspend fun registerUser(@Body postData: PostData): Response<ApiResponse>
+    @POST("signup")
+    suspend fun registerUser(@Body user: User): Response<ApiResponse<User>>
 
-    @GET("products")
-    suspend fun getProducts(): Response<List<GetProduct>>
+    @POST("loginuser")
+    suspend fun loginUser(@Body user: User): Response<ApiResponse<User>>
 
+    @POST("updateuser")
+    suspend fun updateUser(@Body user: User): Response<ApiResponse<User>>
+
+    @POST("resetpassword")
+    suspend fun resetPassword(@Body user: User): Response<ApiResponse<Boolean>>
+
+    @POST("deleteuser")
+    suspend fun deleteUser(@Body user: User): Response<ApiResponse<Boolean>>
 }

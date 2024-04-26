@@ -1,21 +1,20 @@
 package com.eshopthis.finds.Activities
-//import com.ecommerce.shopping.R
+
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.eshopthis.finds.API.ApiController
-import com.eshopthis.finds.DataClass.PostData
-import com.eshopthis.finds.MainActivity
 import com.eshopthis.finds.R
-//import com.ecommerce.shopping.R
+import com.eshopthis.finds.models.User
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +30,6 @@ class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
 
         sharedPrefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
@@ -46,8 +44,7 @@ class Login : AppCompatActivity() {
         goToSignUp = findViewById(R.id.goToSignUpPageID)
 
         goToSignUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, SignUp::class.java))
         }
 
         btnLogin.setOnClickListener {
@@ -57,71 +54,62 @@ class Login : AppCompatActivity() {
             if (lEmail.isEmpty() || !emailValidation(lEmail)) {
                 logEmail.error = "Invalid Email Address"
             } else {
-                checkEmailPassword(lEmail, lPassword)
+                loginUser(lEmail, lPassword)
             }
         }
     }
 
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Exit App")
-        alertDialog.setMessage("Do you want to exit this application?")
-        alertDialog.setPositiveButton("Yes") { _, _ ->
-            finishAffinity()
-        }
-        alertDialog.setNegativeButton("No") { dialog, _ ->
-            dialog.dismiss()
-        }
-        alertDialog.show()
-    }
-
     private fun navigateToMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        startActivity(Intent(this, MainActivity::class.java).also {
+            finish()
+        })
     }
 
     private fun emailValidation(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    private fun checkEmailPassword(email: String, password: String) {
-        val postData = PostData(email, password)
+    private fun loginUser(email: String, password: String) {
+        val user = User(username = email, password = password)
 
         val handler = CoroutineExceptionHandler { _, throwable ->
-            runOnUiThread {
-                Toast.makeText(this@Login, "Exception: ${throwable.message}", Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this@Login, "Exception: ${throwable.localizedMessage}", Toast.LENGTH_SHORT).show()
+            Log.e("Login", "Coroutine Exception: ${throwable.localizedMessage}")
         }
 
-        CoroutineScope(Dispatchers.IO).launch(handler) {
+        CoroutineScope(Dispatchers.Main).launch(handler) {
             try {
-                val response = ApiController.apiService.loginUser(postData)
+                // Log the Android request payload
+                val gson = Gson()
+                val requestBody = gson.toJson(user)
+                Log.d("Login", "Android Request Payload: $requestBody")
+
+                val response = ApiController.apiService.loginUser(user)
+                Log.d("Login", "Request URL: ${response.raw().request.url}")
+                Log.d("Login", "Response Code: ${response.code()}")
+
                 if (response.isSuccessful) {
                     val apiResponse = response.body()
-                    runOnUiThread {
-                        if (apiResponse != null) {
-                            if (apiResponse.message == "Login successful") {
-                                val editor = sharedPrefs.edit()
-                                editor.putBoolean("isLoggedIn", true)
-                                editor.apply()
-                                navigateToMainActivity()
-                            } else {
-                                Toast.makeText(this@Login, apiResponse.message, Toast.LENGTH_SHORT).show()
-                            }
+                    if (apiResponse?.success == true) {
+                        sharedPrefs.edit().apply {
+                            putBoolean("isLoggedIn", true)
+                            apply()
                         }
+                        navigateToMainActivity()
+                    } else {
+                        val errorMessage = apiResponse?.message ?: "Unknown error"
+                        Toast.makeText(this@Login, "Login Failed: $errorMessage", Toast.LENGTH_SHORT).show()
+                        Log.e("Login", "API Error: $errorMessage")
                     }
                 } else {
-                    runOnUiThread {
-                        Toast.makeText(this@Login, "HTTP Error: ${response.code()}", Toast.LENGTH_SHORT).show()
-                    }
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = "HTTP Error: ${response.code()} - $errorBody"
+                    Toast.makeText(this@Login, errorMessage, Toast.LENGTH_SHORT).show()
+                    Log.e("Login", errorMessage)
                 }
             } catch (e: Exception) {
-                runOnUiThread {
-                    Toast.makeText(this@Login, "Exception: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(this@Login, "Exception: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+                Log.e("Login", "Login Exception: ${e.localizedMessage}", e)
             }
         }
     }

@@ -1,19 +1,15 @@
 package com.eshopthis.finds.API
 
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiController {
-    private val url : String = "https://food-buzz.000webhostapp.com/"
-    private val client = OkHttpClient.Builder().build()
+    private const val BASE_URL = "http://mnsso.wamfeo.com/sso.mn.com/"
 
-    private val retrofit by lazy {
-
+    private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
             .build()
     }
 

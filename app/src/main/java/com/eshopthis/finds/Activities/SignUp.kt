@@ -9,23 +9,22 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.eshopthis.finds.API.ApiController
-import com.eshopthis.finds.DataClass.PostData
-import com.eshopthis.finds.MainActivity
 import com.eshopthis.finds.R
-//
+import com.eshopthis.finds.models.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
 
 class SignUp : AppCompatActivity() {
 
     private lateinit var emailSignUp: EditText
     private lateinit var passwordSignUp: EditText
     private lateinit var confirmPasswordSignUp: EditText
+    private lateinit var firstNameEditText: EditText
+    private lateinit var lastNameEditText: EditText
+    private lateinit var referralEmailEditText: EditText
     private lateinit var signUpBtn: Button
     private lateinit var gotoLogin: TextView
-    private val url: String = "https://185.27.134.11/api/";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,15 +33,15 @@ class SignUp : AppCompatActivity() {
         emailSignUp = findViewById(R.id.SignUpEmailID)
         passwordSignUp = findViewById(R.id.newPasswordSignUpId)
         confirmPasswordSignUp = findViewById(R.id.confirmNewPasswordSignUpId)
+        firstNameEditText = findViewById(R.id.firstNameEditText)
+        lastNameEditText = findViewById(R.id.lastNameEditText)
+        referralEmailEditText = findViewById(R.id.referralEmailEditText)
         signUpBtn = findViewById(R.id.signupButtonID)
         gotoLogin = findViewById(R.id.goToLoginPageID)
 
-
         gotoLogin.setOnClickListener {
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Login::class.java))
         }
-
 
         signUpBtn.setOnClickListener {
             val newEmail = emailSignUp.text.toString().trim()
@@ -52,59 +51,59 @@ class SignUp : AppCompatActivity() {
             if (!emailValidation(newEmail)) {
                 emailSignUp.error = "Invalid Email Address"
             } else if (newPassword != confirmNewPassword) {
-                passwordSignUp.error = "Password must be same"
-                confirmPasswordSignUp.error = "Password must be same"
+                passwordSignUp.error = "Passwords do not match"
+                confirmPasswordSignUp.error = "Passwords do not match"
             } else if (newPassword.length < 8) {
-                passwordSignUp.error = "no less than 8 digit"
-                confirmPasswordSignUp.error = "no less than 8 digit"
+                passwordSignUp.error = "Password must be at least 8 characters"
+                confirmPasswordSignUp.error = "Password must be at least 8 characters"
             } else {
-                registerUser(newEmail, newPassword);
+                checkUsernameAvailability(newEmail, newPassword)
             }
         }
-
-
     }
-
-
-
-
-
-
 
     private fun emailValidation(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-
-
-    fun registerUser(newEmail: String, newPassword: String) {
-
-        val postData = PostData(newEmail, newPassword)
-        // Use CoroutineScope to perform the API call asynchronously
+    private fun checkUsernameAvailability(email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = ApiController.apiService.registerUser(postData)
-
-                if (response.isSuccessful) {
-                    val apiResponse = response.body()
-
-                    runOnUiThread {
-                        if (apiResponse != null) {
-                            if (apiResponse.message == "Successful") {
-                                // Registration successful, update UI accordingly
-                                Toast.makeText(this@SignUp, "Registration successful", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this@SignUp, MainActivity::class.java)
-                                startActivity(intent)
-                            } else {
-                                // Registration failed, show an error message
-                                Toast.makeText(this@SignUp, ""+apiResponse.message, Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                    }
+                val checkUsernameResponse = ApiController.apiService.checkUsername(email)
+                if (checkUsernameResponse.isSuccessful && checkUsernameResponse.body()?.success == true) {
+                    registerUser(email, password)
                 } else {
-                    // Handle other HTTP status codes if needed
                     runOnUiThread {
-                        Toast.makeText(this@SignUp, "HTTP Error: ${response.code()}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUp, "Username already exists", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(this@SignUp, "Network error: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun registerUser(email: String, password: String) {
+        val user = User(
+            username = email,
+            password = password,
+            firstName = firstNameEditText.text.toString(),
+            lastName = lastNameEditText.text.toString(),
+            referralEmail = referralEmailEditText.text.toString()
+        )
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val registerResponse = ApiController.apiService.registerUser(user)
+                runOnUiThread {
+                    if (registerResponse.isSuccessful && registerResponse.body()?.success == true) {
+                        Toast.makeText(this@SignUp, "Registration successful", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@SignUp, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this@SignUp, "Registration failed: ${registerResponse.body()?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {
@@ -113,9 +112,5 @@ class SignUp : AppCompatActivity() {
                 }
             }
         }
-
     }
-
-
-
 }
