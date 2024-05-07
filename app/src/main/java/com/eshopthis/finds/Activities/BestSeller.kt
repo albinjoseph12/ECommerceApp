@@ -13,7 +13,6 @@ class BestSeller : AppCompatActivity() {
     private lateinit var clubsJerseyRV: RecyclerView
     private lateinit var adapter: Adapter
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private val imageResId = R.drawable.the_alchemist
     private val dataList = mutableListOf<Model>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +33,8 @@ class BestSeller : AppCompatActivity() {
 
     private fun prepareData() {
         dataList.clear()
-        dataList.add(Model("1", "The Alchemist", "10.99", "Description for The Alchemist", imageResId.toString()))
-        dataList.add(Model("2", "The Alchemist-2", "12.99", "Description for The Alchemist-2", imageResId.toString()))
+        dataList.add(Model("1", "The Alchemist", "10.99", "Description for The Alchemist", R.drawable.best_seller))
+        dataList.add(Model("2", "The Alchemist-2", "12.99", "Description for The Alchemist-2", R.drawable.the_alchemist))
         adapter.notifyDataSetChanged()
     }
 }

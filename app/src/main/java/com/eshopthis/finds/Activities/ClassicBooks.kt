@@ -13,7 +13,6 @@ class ClassicBooks : AppCompatActivity() {
     private lateinit var customizedJerseyRV: RecyclerView
     private lateinit var adapter: Adapter
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private val imageResId = R.drawable.java
     private val dataList = mutableListOf<Model>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +33,8 @@ class ClassicBooks : AppCompatActivity() {
 
     private fun prepareData() {
         dataList.clear()
-        dataList.add(Model("1", "Java ", "10.99", "Description for Book 1", imageResId.toString()))
-        dataList.add(Model("2", "Java-2", "12.99", "Description for Book 2", imageResId.toString()))
+        dataList.add(Model("1", "Java ", "10.99", "Description for Book 1", R.drawable.classics))
+        dataList.add(Model("2", "Java-2", "12.99", "Description for Book 2", R.drawable.classics))
         adapter.notifyDataSetChanged()
     }
 }

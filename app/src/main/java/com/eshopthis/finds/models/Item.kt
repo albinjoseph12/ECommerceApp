@@ -1,4 +1,4 @@
-package com.eshopthis.finds.data
+package com.eshopthis.finds.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

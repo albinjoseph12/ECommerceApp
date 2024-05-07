@@ -10,32 +10,31 @@ import com.eshopthis.finds.data.Model
 
 class FictionBooks : AppCompatActivity() {
 
-    private lateinit var jogersRV: RecyclerView
+    private lateinit var fictionRV: RecyclerView
     private lateinit var adapter: Adapter
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private val imageResId = R.drawable.cplus
     private val dataList = mutableListOf<Model>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fiction)
 
-        jogersRV = findViewById(R.id.id_Fiction)
+        fictionRV = findViewById(R.id.id_Fiction)
         fetchData()
     }
 
     private fun fetchData() {
         layoutManager = GridLayoutManager(applicationContext, 3)
-        jogersRV.layoutManager = layoutManager
+        fictionRV.layoutManager = layoutManager
         adapter = Adapter(this, dataList)
-        jogersRV.adapter = adapter
+        fictionRV.adapter = adapter
         prepareData()
     }
 
     private fun prepareData() {
         dataList.clear()
-        dataList.add(Model("1", "Fiction 1", "10.99", "Description for Book 1", imageResId.toString()))
-        dataList.add(Model("2", "Fiction 2", "12.99", "Description for Book 2", imageResId.toString()))
+        dataList.add(Model("1", "Fiction Book 1", "8.99", "Description for Fiction Book 1", R.drawable.fiction))
+        dataList.add(Model("2", "Fiction Book 2", "9.99", "Description for Fiction Book 2", R.drawable.fifa))
         adapter.notifyDataSetChanged()
     }
 }

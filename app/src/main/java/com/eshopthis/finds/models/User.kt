@@ -2,12 +2,15 @@ package com.eshopthis.finds.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.eshopthis.finds.data.Converters
 import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 @Entity(tableName = "user")
+@TypeConverters(Converters::class)
 data class User(
-    @PrimaryKey val userId: Int = 0,
+    @PrimaryKey(autoGenerate = true) val userId: Int = 0,
     var username: String = "",
     var password: String = "",
     var firstName: String = "",
@@ -29,10 +32,5 @@ data class User(
     var pincode: String = "",
     var state: String = "",
     var country: String = "",
-    var billingAddress1: String = "",
-    var billingAddress2: String = "",
-    var billingCity: String = "",
-    var billingPincode: String = "",
-    var billingState: String = "",
-    var billingCountry: String = ""
+    var billingAddress1: String = ""
 )

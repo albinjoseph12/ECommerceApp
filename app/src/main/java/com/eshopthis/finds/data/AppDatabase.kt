@@ -1,13 +1,12 @@
 package com.eshopthis.finds.data
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.eshopthis.finds.di.UserDao
+import com.eshopthis.finds.models.Item
 import com.eshopthis.finds.models.User
 
 @Database(entities = [User::class, Item::class], version = 2, exportSchema = false)
@@ -24,20 +23,13 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+                instance ?: Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    DATABASE_NAME
+                ).fallbackToDestructiveMigration()
+                    .build().also { instance = it }
             }
-        }
-
-        private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
-                .addCallback(object : RoomDatabase.Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        Log.d("AppDatabase", "Database created.")
-                        Log.d("AppDatabase", "items table created.")
-                    }
-                })
-                .build()
         }
     }
 }

@@ -89,17 +89,16 @@ class Login : AppCompatActivity() {
                 Log.d("Login", "Response Code: ${response.code()}")
 
                 if (response.isSuccessful) {
-                    val apiResponse = response.body()
-                    if (apiResponse?.success == true) {
+                    val loggedInUser = response.body()
+                    if (loggedInUser != null) {
                         sharedPrefs.edit().apply {
                             putBoolean("isLoggedIn", true)
                             apply()
                         }
                         navigateToMainActivity()
                     } else {
-                        val errorMessage = apiResponse?.message ?: "Unknown error"
-                        Toast.makeText(this@Login, "Login Failed: $errorMessage", Toast.LENGTH_SHORT).show()
-                        Log.e("Login", "API Error: $errorMessage")
+                        Toast.makeText(this@Login, "Login Failed: Invalid response", Toast.LENGTH_SHORT).show()
+                        Log.e("Login", "API Error: Invalid response")
                     }
                 } else {
                     val errorBody = response.errorBody()?.string()

@@ -10,12 +10,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import com.eshopthis.finds.R
 import com.eshopthis.finds.Adapter.cartAdapter
+import com.eshopthis.finds.R
 import com.eshopthis.finds.data.AppDatabase
-import com.eshopthis.finds.data.Item
-import com.eshopthis.finds.data.ItemDAO
 import com.eshopthis.finds.data.Space
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -53,9 +50,9 @@ class FragmentCart : Fragment() {
 
     private fun getRoomData() {
         GlobalScope.launch(Dispatchers.IO) {
-            val db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, "cart_db").allowMainThreadQueries().build()
-            val itemDAO = db.itemDao()
-            val items = itemDAO.getAllItems()
+            val db = AppDatabase.getInstance(requireContext())
+            val itemDao = db.itemDao()
+            val items = itemDao.getAllItems()
             withContext(Dispatchers.Main) {
                 cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 

@@ -10,7 +10,7 @@ import com.eshopthis.finds.data.Model
 
 class Clearance : AppCompatActivity() {
 
-    private lateinit var clubsKeyRingRV: RecyclerView
+    private lateinit var clearanceRV: RecyclerView
     private lateinit var adapter: Adapter
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private val dataList = mutableListOf<Model>()
@@ -19,22 +19,22 @@ class Clearance : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clearance)
 
-        clubsKeyRingRV = findViewById(R.id.id_Clearance)
+        clearanceRV = findViewById(R.id.id_Clearance)
         fetchData()
     }
 
     private fun fetchData() {
-        layoutManager = GridLayoutManager(applicationContext, 3)
-        clubsKeyRingRV.layoutManager = layoutManager
+        layoutManager = GridLayoutManager(applicationContext, 2)
+        clearanceRV.layoutManager = layoutManager
         adapter = Adapter(this, dataList)
-        clubsKeyRingRV.adapter = adapter
+        clearanceRV.adapter = adapter
         prepareData()
     }
 
     private fun prepareData() {
         dataList.clear()
-        dataList.add(Model("1", "Clearance Item 1", "9.99", "Description for Clearance Item 1", R.drawable.cplus.toString()))
-        dataList.add(Model("2", "Clearance Item 2", "11.99", "Description for Clearance Item 2", R.drawable.cplus.toString()))
+        dataList.add(Model("1", "Clearance Book 1", "5.99", "Description for Clearance Book 1", R.drawable.clearance))
+        dataList.add(Model("2", "Clearance Book 2", "7.99", "Description for Clearance Book 2", R.drawable.java))
         adapter.notifyDataSetChanged()
     }
 }

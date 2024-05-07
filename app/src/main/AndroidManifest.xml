@@ -94,6 +94,26 @@
             android:name=".Activities.ArtsActivity"
             android:exported="false" />
 
+        <!-- ProfileDetailsActivity -->
+        <activity
+            android:name=".Activities.ProfileDetailsActivity"
+            android:exported="false" />
+
+        <!-- UpdateUserActivity -->
+        <activity
+            android:name=".Activities.UpdateUserActivity"
+            android:exported="false" />
+
+        <!-- ResetPasswordActivity -->
+        <activity
+            android:name=".Activities.ResetPasswordActivity"
+            android:exported="false" />
+
+        <!-- DeleteAccountActivity -->
+        <activity
+            android:name=".Activities.DeleteAccountActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

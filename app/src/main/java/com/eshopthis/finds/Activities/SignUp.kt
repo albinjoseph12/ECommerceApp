@@ -70,7 +70,7 @@ class SignUp : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val checkUsernameResponse = ApiController.apiService.checkUsername(email)
-                if (checkUsernameResponse.isSuccessful && checkUsernameResponse.body()?.success == true) {
+                if (checkUsernameResponse.isSuccessful && checkUsernameResponse.body()?.data == true) {
                     registerUser(email, password)
                 } else {
                     runOnUiThread {
@@ -98,12 +98,12 @@ class SignUp : AppCompatActivity() {
             try {
                 val registerResponse = ApiController.apiService.registerUser(user)
                 runOnUiThread {
-                    if (registerResponse.isSuccessful && registerResponse.body()?.success == true) {
+                    if (registerResponse.isSuccessful && registerResponse.body()?.data != null) {
                         Toast.makeText(this@SignUp, "Registration successful", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@SignUp, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this@SignUp, "Registration failed: ${registerResponse.body()?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUp, "Registration failed", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {

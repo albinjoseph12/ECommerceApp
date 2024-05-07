@@ -1,10 +1,9 @@
 package com.eshopthis.finds.di
 
 import android.content.Context
-import androidx.room.Room
 import com.eshopthis.finds.API.ApiService
 import com.eshopthis.finds.data.AppDatabase
-import com.eshopthis.finds.di.UserDao
+import com.eshopthis.finds.data.ItemDAO
 import com.eshopthis.finds.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -32,22 +31,18 @@ object UserModule {
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "app_database"
-        ).build()
+        return AppDatabase.getInstance(context)
     }
 
     @Provides
     @Singleton
-    fun provideUserDao(appDatabase: AppDatabase): UserDao {
-        return appDatabase.userDao()
+    fun provideItemDao(appDatabase: AppDatabase): ItemDAO {
+        return appDatabase.itemDao()
     }
 
     @Provides
     @Singleton
-    fun provideUserRepository(apiService: ApiService, userDao: UserDao): UserRepository {
-        return UserRepository(apiService, userDao)
+    fun provideUserRepository(appDatabase: AppDatabase, apiService: ApiService): UserRepository {
+        return UserRepository(appDatabase, apiService)
     }
 }

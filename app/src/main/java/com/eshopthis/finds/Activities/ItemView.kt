@@ -8,11 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.eshopthis.finds.R
 import com.eshopthis.finds.data.AppDatabase
-import com.eshopthis.finds.data.Item
+import com.eshopthis.finds.models.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -95,13 +94,13 @@ class ItemView : AppCompatActivity() {
         try {
             id = (Math.random() * Integer.MAX_VALUE).toInt()
 
+            val db = AppDatabase.getInstance(applicationContext)
+            val itemDao = db.itemDao()
             GlobalScope.launch(Dispatchers.IO) {
-                val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "cart_db").allowMainThreadQueries().build()
-                val itemDAO = db.itemDao()
-                val check = itemDAO.isTitleExists(s_title)
+                val check = itemDao.isTitleExists(s_title)
                 withContext(Dispatchers.Main) {
                     if (check == 0) {
-                        itemDAO.insertItem(Item(id = id, name = s_title, description = s_description, price = JerseyPrice, quantity = s_quantity))
+                        itemDao.insertItem(Item(id = id, name = s_title, description = s_description, price = JerseyPrice, quantity = s_quantity))
                         Toast.makeText(this@ItemView, "Item added to cart", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@ItemView, "Item Already exist in cart", Toast.LENGTH_SHORT).show()

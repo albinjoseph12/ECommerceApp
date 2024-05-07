@@ -1,7 +1,6 @@
 package com.eshopthis.finds.Fragments
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,12 +65,12 @@ class FragmentHome : Fragment() {
         dataList.clear()
 
         // Add items with new images here
-        dataList.add(Model("1", "Ruby", "10", "Description for Ruby", R.drawable.ruby.toString()))
-        dataList.add(Model("2", "React", "10", "Description for React", R.drawable.react.toString()))
-        dataList.add(Model("3", "Java", "10", "Description for Java", R.drawable.java.toString()))
-        dataList.add(Model("4", "JavaScript", "10", "Description for JavaScript", R.drawable.javascript.toString()))
-        dataList.add(Model("5", "SQL", "10", "Description for SQL", R.drawable.sql.toString()))
-        dataList.add(Model("6", "Python", "10", "Description for Python", R.drawable.python.toString()))
+        dataList.add(Model("1", "Ruby", "10", "Description for Ruby", R.drawable.ruby))
+        dataList.add(Model("2", "React", "10", "Description for React", R.drawable.react))
+        dataList.add(Model("3", "Java", "10", "Description for Java", R.drawable.java))
+        dataList.add(Model("4", "JavaScript", "10", "Description for JavaScript", R.drawable.javascript))
+        dataList.add(Model("5", "SQL", "10", "Description for SQL", R.drawable.sql))
+        dataList.add(Model("6", "Python", "10", "Description for Python", R.drawable.python))
 
         adapter.notifyDataSetChanged()
     }

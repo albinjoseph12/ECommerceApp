@@ -29,8 +29,8 @@ class ArtsActivity : AppCompatActivity() {
 
     private fun loadBooks() {
         dataList.clear()
-        dataList.add(Model("1", "Art Book 1", "$19.99", "Description for Art Book 1", R.drawable.arts.toString()))
-        dataList.add(Model("2", "Art Book 2", "$29.99", "Description for Art Book 2", R.drawable.arts.toString()))
+        dataList.add(Model("1", "Art Book 1", "$19.99", "Description for Art Book 1", R.drawable.arts))
+        dataList.add(Model("2", "Art Book 2", "$29.99", "Description for Art Book 2", R.drawable.arts))
         adapter.notifyDataSetChanged()
     }
 }

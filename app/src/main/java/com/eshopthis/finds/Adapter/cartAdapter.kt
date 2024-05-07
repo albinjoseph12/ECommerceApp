@@ -9,10 +9,9 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
 import com.eshopthis.finds.R
 import com.eshopthis.finds.data.AppDatabase
-import com.eshopthis.finds.data.Item
+import com.eshopthis.finds.models.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -53,10 +52,10 @@ class cartAdapter(
         }
 
         holder.delete.setOnClickListener {
+            val db = AppDatabase.getInstance(holder.cartItemTitle.context)
+            val itemDao = db.itemDao()
             GlobalScope.launch(Dispatchers.IO) {
-                val db = Room.databaseBuilder(holder.cartItemTitle.context, AppDatabase::class.java, "cart_db").allowMainThreadQueries().build()
-                val itemDAO = db.itemDao()
-                itemDAO.deleteItemById(item.id)
+                itemDao.deleteItemById(item.id)
                 withContext(Dispatchers.Main) {
                     items.removeAt(position)
                     notifyItemRemoved(position)
